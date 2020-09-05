@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from app.forms import UserForm
+from app.models import Algorithm
+
 
 def index(request):
-    context_dict = {"some": 'haha'}
+    context_dict = {"algorithms": Algorithm.objects.all()}
     return render(request, 'app/index.html', context=context_dict)
+
 
 def register(request):
     registered = False
@@ -18,6 +21,5 @@ def register(request):
             print(user_form.errors)
     else:
         user_form = UserForm()
-    return render(request, 'app/register.html', context={'user_form': user_form, 'registered': registered})
-
-# Create your views here.
+    return render(request, 'app/register.html',
+                  context={'user_form': user_form, 'registered': registered})

@@ -1,63 +1,119 @@
 <!DOCTYPE html>
 <html lang='en'>
-    <title>Basic Algorithms</title>
-        <meta charset="utf-8">
-        <meta name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author"
-        content="Jaro a Sara">
-        <meta name="generator"
-        content="Jekyll v3.8.5">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <style type="text/css">
-            .sidenav{
-                height:100%;
-                width:160px;
-                position: fixed;
-                z-index:1;
-                top:0;
-                left:0;
-                background-color:#111;
-                overflow-x: hidden;
-                padding-top:20px;
-            }
-
-            .sidenav a {
-                padding:6px 8px 8px 16px;
-                text-decoration: none;
-                font-size: 25px;
-                color: #818181;
-                display: block;
-            }
-
-            .sidenav a:hover{
-                color: #f1f1f1;
-            }
-
-            .main{
-                margin-left:160px;
-                padding: 0px 10px;
-            }
-
-        </style>
-    <title>
-
     <head>
-        <title>This page contains tutorials for most common algorithms.</title>
+        <title>Basic Algorithms</title>
+            <meta charset="utf-8">
+            <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="">
+            <meta name="author"
+            content="Jaro a Sara">
+            <meta name="generator"
+            content="Jekyll v3.8.5">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+            <style type="text/css">
+                .container {
+                    top:0;
+                    left:0;
+                    z-index:2;
+                    width:205px;
+                    position: absolute;
+                    display: inline-block;
+                    cursor: pointer;
+                }
+
+                .sidenav{
+                    height:100%;
+                    width:205px;
+                    position: absolute;
+                    z-index:1;
+                    top:0;
+                    left:0;
+                    background-color:#111;
+                    overflow-x: hidden;
+                    padding-top:40px;
+                    transition: 0.4s;
+                }
+
+                .sidenav a {
+                    padding:6px 8px 8px 16px;
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: #818181;
+                    display: block;
+                }
+
+                .sidenav a:hover{
+                    color: #f1f1f1;
+                }
+
+                .bar1, .bar2, .bar3 {
+                    width: 30px;
+                    height: 4px;
+                    background-color: rgb(155, 141, 141);
+                    margin: 5px 0;
+                    z-index:2;
+                    transition: 0.4s;
+                }
+
+                .main{
+                    margin-left:220px;
+                    padding: 25px 10px;
+                }
+
+                .intro{
+                    margin-left:250px;
+                    padding: 10px;
+                }
+
+                .change .bar1 {
+                    -webkit-transform: rotate(-45deg) translate(-6px, 2px);
+                    transform: rotate(-45deg) translate(-6px, 2px);
+                }
+
+                .change .bar2 {opacity: 0;}
+
+                .change .bar3 {
+                    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+                    transform: rotate(45deg) translate(-8px, -8px);
+                }
+
+                .change .sidenav {
+                    -webkit-transform: translateX(20px);
+                    transform: translateX(20px);
+                }
+
+                .change .sidenav a {opacity: 0;}
+
+            </style>
     </head>
 
     <body>
-        <h1>Kamo...</h1>
+        <div class="intro">
+            <h3>This page contains tutorials for most common algorithms.</h3>
+        </div>
+        <div class="container" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
         <div class="sidenav">
-            <a href="/home">Alg1</a>
-            <a href="/home">Alg2</a>
-            <a href="/home">Alg3</a>
-        </div>
+            {% for alg in algorithms %}
+                <a href="/">{{alg.name}}</a>
+            {% endfor %}
+        </div>          
         <div id="content", name="content", class="main">
-            toto je napisane v html!!! <br />
-            <strong>{{ some }}</strong><br />
+            {% for alg in algorithms %}
+                <b>{{alg.name}}</b>
+                <br>{{alg.description}}</br>
+                <br>
+            {% endfor %}
         </div>
+        <script>
+            function myFunction(x) {
+              x.classList.toggle("change");
+            }
+        </script>
     </body>
 
 </html>
