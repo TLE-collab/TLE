@@ -10,6 +10,37 @@
         <meta name="generator"
         content="Jekyll v3.8.5">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style type="text/css">
+            .sidenav{
+                height:100%;
+                width:160px;
+                position: fixed;
+                z-index:1;
+                top:0;
+                left:0;
+                background-color:#111;
+                overflow-x: hidden;
+                padding-top:20px;
+            }
+
+            .sidenav a {
+                padding:6px 8px 8px 16px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+            }
+
+            .sidenav a:hover{
+                color: #f1f1f1;
+            }
+
+            .main{
+                margin-left:160px;
+                padding: 0px 10px;
+            }
+
+        </style>
     <title>
 
     <head>
@@ -18,7 +49,12 @@
 
     <body>
         <h1>Kamo...</h1>
-        <div>
+        <div class="sidenav">
+            <a href="/home">Alg1</a>
+            <a href="/home">Alg2</a>
+            <a href="/home">Alg3</a>
+        </div>
+        <div id="content", name="content", class="main">
             toto je napisane v html!!! <br />
             <strong>{{ some }}</strong><br />
         </div>

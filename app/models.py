@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 
 class Category(models.Model):
@@ -12,9 +13,14 @@ class Category(models.Model):
 
 
 class Algorithm(models.Model):
-    title = models.CharField(max_length=68, unique=True)
+    name = models.CharField(max_length=68, unique=True)
     description = models.CharField(max_length=1000)
     solution = models.CharField(max_length=1000)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Algorithm, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        return self.name
