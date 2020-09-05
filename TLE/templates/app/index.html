@@ -78,9 +78,9 @@
                     transform: rotate(45deg) translate(-8px, -8px);
                 }
 
-                .change .sidenav {
-                    -webkit-transform: translateX(20px);
-                    transform: translateX(20px);
+                #pro.change {
+                    -webkit-transform: translateX(-250px);
+                    transform: translateX(-250px);
                 }
 
                 .change .sidenav a {opacity: 0;}
@@ -97,7 +97,7 @@
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-        <div class="sidenav">
+        <div id="pro" class="sidenav">
             {% for alg in algorithms %}
                 <a href="/">{{alg.name}}</a>
             {% endfor %}
@@ -112,6 +112,7 @@
         <script>
             function myFunction(x) {
               x.classList.toggle("change");
+              document.getElementById('pro').classList.toggle('change')
             }
         </script>
     </body>
